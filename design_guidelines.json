@@ -1,0 +1,61 @@
+{
+  "theme": "dark",
+  "typography": {
+    "headings": "Anton, sans-serif",
+    "body": "Manrope, sans-serif",
+    "monospace": "JetBrains Mono, monospace"
+  },
+  "colors": {
+    "background": "#050505",
+    "surface": "#121212",
+    "surface_elevated": "#1E1E1E",
+    "kente_gold": "#FFD700",
+    "kente_red": "#D90429",
+    "kente_green": "#00A86B",
+    "text_primary": "#F3F4F6",
+    "text_secondary": "#9CA3AF"
+  },
+  "visual_enhancers": {
+    "borders": "1px solid kente accent colors (brutalist, no soft shadows, tactical)",
+    "shadows": "Hard CSS shadows: 4px 4px 0px var(--kente-red)",
+    "patterns": "CSS-only diagonal stripes (repeating-linear-gradient) for empty states and disabled buttons"
+  },
+  "layouts": {
+    "global": "Mobile-first PWA. 'max-w-md mx-auto h-[100dvh] flex flex-col overflow-hidden bg-[#050505] relative'. Desktop views should look like a mobile device frame.",
+    "hud": "Fixed top, h-16, solid #050505, z-50, border-b 1px border-kente-gold flex justify-between items-center px-4",
+    "content": "flex-1 overflow-y-auto pb-20 pt-16 hide-scrollbar",
+    "bottom_nav": "Fixed bottom, h-16, solid #050505, z-50, border-t border-gray-800 flex justify-around items-center w-full max-w-md"
+  },
+  "components": {
+    "hustle_card": "Flat surface #121212, p-4, border-l-4 border-kente-gold. Tap area takes up whole card. active:scale-[0.98] transition-transform.",
+    "progress_bar": "h-2 w-full bg-gray-800 rounded-none mt-2. Fill color kente_green for clean cedis, kente_gold for dirty.",
+    "raid_banner": "Sticky under HUD. bg-kente_red text-white text-xs font-bold py-1 px-4 flex justify-between animate-pulse uppercase tracking-widest",
+    "crew_card": "Grid layout, border border-gray-800 bg-[#121212]. Avatar is a CSS abstract block with a bold initial letter.",
+    "heist_log": "Terminal style. JetBrains Mono font. text-xs p-3 bg-black border border-gray-800 text-gray-400 with kente_green highlights for success.",
+    "welcome_back_modal": "Bottom sheet modal (translate-y). bg-surface border-t-2 border-kente_gold. Massive kente_gold earning numbers."
+  },
+  "motion": {
+    "progress": "linear width transitions for timers (transition-all duration-1000 linear)",
+    "tap_feedback": "active:scale-95 transition-transform duration-75",
+    "raid_alert": "CSS keyframe pulse for background red/black to simulate heat",
+    "modals": "Slide up from bottom (translate-y-full to translate-y-0)"
+  },
+  "accessibility": {
+    "contrast": "APCA compliant. Gold/Red on Black provides extremely high contrast.",
+    "motion": "Respect prefers-reduced-motion for the raid pulse."
+  },
+  "media": {
+    "strategy": "CSS-only. NO heavy images. Use @phosphor-icons/react for all icons (Duotone or Fill weights to match bold style)."
+  },
+  "image_urls": [],
+  "universal_guidelines": [
+    "Do not use transparent backgrounds for header/HUD or bottom nav. They must be solid #050505 to prevent scrolling content from showing underneath.",
+    "Add data-testid to ALL interactive elements (e.g., data-testid='hustle-tap-btn', data-testid='nav-heists-btn').",
+    "Use mobile-first dimensions. Keep assets completely CSS-based (no image loads) for ultra-fast budget Android performance.",
+    "Never use generic AI emojis.",
+    "Install `yarn add @phosphor-icons/react` for icons.",
+    "Use Twi/Pidgin slang in the UI text (e.g., 'Chale, police dey come!', 'Dirty Cedis').",
+    "Implement components in .js extensions instead of .tsx."
+  ],
+  "instructions_to_main_agent": "Implement a high-performance CSS-only idle game targeting budget mobile devices. The HUD and Bottom Nav must be fixed and solid. Content scrolls in between. Use 'Anton' font for giant numbers/headers and 'Manrope' for body. Inject localized slang heavily. No images, rely strictly on colors, typography, borders, and CSS progress bars for the game feel."
+}

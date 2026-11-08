@@ -1,0 +1,18 @@
+<!doctype html><html><body style="margin:0;background:transparent">
+<canvas id="c" width="256" height="256"></canvas>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
+const q=new URLSearchParams(location.search); const g=q.get("g"); const mode=q.get("mode")||"portrait";
+const r=new THREE.WebGLRenderer({canvas:document.getElementById('c'),alpha:true,antialias:true,preserveDrawingBuffer:true});
+r.setClearColor(0x000000,0);
+const s=new THREE.Scene(); const cam=new THREE.PerspectiveCamera(mode==="portrait"?30:32,1,0.1,10);
+if(mode==="portrait"){cam.position.set(0,1.5,1.75);cam.lookAt(0,1.5,0);}else{cam.position.set(0,0.95,3.6);cam.lookAt(0,0.95,0);}
+s.add(new THREE.AmbientLight(0xffffff,0.55)); const d=new THREE.DirectionalLight(0xffffff,1.6); d.position.set(2,3,2); s.add(d);
+const d2=new THREE.DirectionalLight(0xd4af37,1.0); d2.position.set(-2,1,-2); s.add(d2);
+const dl=new DRACOLoader(); dl.setDecoderPath("/public/draco/"); const l=new GLTFLoader(); l.setDRACOLoader(dl);
+l.load(`/public/models/${g}.glb`,(gl)=>{gl.scene.traverse(o=>{if(o.isMesh){o.geometry.computeVertexNormals();o.material=new THREE.MeshStandardMaterial({color:0x3a3a42,roughness:0.55,metalness:0.25});}});
+ gl.scene.rotation.y=mode==="portrait"?0.35:0.5; s.add(gl.scene); r.render(s,cam); document.title="done";});
+</script></body></html>

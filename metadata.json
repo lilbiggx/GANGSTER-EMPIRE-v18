@@ -1,0 +1,8 @@
+{
+  "name": "Remix GANGSTER-EMPIRE-v17",
+  "description": "Imported from GitHub: lilbiggx/GANGSTER-EMPIRE-v16b",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
